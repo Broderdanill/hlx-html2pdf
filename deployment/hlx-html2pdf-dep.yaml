@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hlx-html2pdf
+  labels:
+    app: hlx-html2pdf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hlx-html2pdf
+  template:
+    metadata:
+      labels:
+        app: hlx-html2pdf
+    spec:
+      containers:
+        - name: html2pdf
+          image: your-registry/edge-pdf-python312:latest  # <-- Ändra till rätt registry/bild
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
