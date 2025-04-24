@@ -9,6 +9,8 @@ podman build -t hlx-html2pdf .
 # Run container
 podman run -e LOG_LEVEL=DEBUG -p 8080:8080 hlx-html2pdf
 
-> [!TIP]
-> Test the container with command:
-> curl -X POST http://localhost:8080/generate-pdf -H "Content-Type: application/json" -d '{"html": "YOUR HTML-CODE AS STRING"}'
+# Test container
+curl -X POST http://localhost:8080/generate-pdf -H "Content-Type: application/json" -d '{"html": "YOUR HTML-CODE AS STRING"}'
+
+# Kubernetes deployment
+You can use the yaml's in folder "deployment" as a template in your environment
