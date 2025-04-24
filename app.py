@@ -37,6 +37,7 @@ def generate_pdf():
                 "microsoft-edge",
                 "--headless",
                 "--disable-gpu",
+                "--no-sandbox",
                 f"--print-to-pdf={pdf_path}",
                 f"file://{html_path}"
             ]

@@ -15,13 +15,16 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
     apt-get update && apt-get install -y microsoft-edge-stable && \
     rm microsoft.gpg
 
+# Kopiera requirements.txt till containern
+COPY requirements.txt /app/
+
 # Installera Python-dependenser
-RUN pip install flask
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Lägg till vår applikation
 WORKDIR /app
-COPY server.py .
+COPY app.py .
 
-# Exponera port och starta server
+# Kör med Gunicorn (produktion)
 EXPOSE 8080
-CMD ["python", "server.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
