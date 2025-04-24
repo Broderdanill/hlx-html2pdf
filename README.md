@@ -1,5 +1,7 @@
 # hlx-html2pdf
 Returns HTML-string as Base64 encoded string
+This can be useful for example in BMC Helix to send a html-string to this container and the collect the answer in a innovation studio application that have possibility to save a base64-encoded string as an attachment directly.
+So this makes it possible to generate a pdf-file in BMC Helix.
 
 # Build image
 podman build -t hlx-html2pdf .
