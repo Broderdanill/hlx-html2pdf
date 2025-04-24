@@ -11,4 +11,4 @@ podman run -e LOG_LEVEL=DEBUG -p 8080:8080 hlx-html2pdf
 
 > [!TIP]
 > Test the container with command:
-> curl -X POST http://localhost:8080/generate-pdf -H "Content-Type: application/json" -d '{"html": "<html><body><h1>Hello base64 pdf string!</h1></body></html>"}'
+> curl -X POST http://localhost:8080/generate-pdf -H "Content-Type: application/json" -d '{"html": "YOUR HTML-CODE AS STRING"}'
