@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: html2pdf
-          image: your-registry/edge-pdf-python312:latest  # <-- Ändra till rätt registry/bild
+          image: your-registry/hlx-html2pdf:latest  # <-- change to your image
           ports:
             - containerPort: 8080
           env:
